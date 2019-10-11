@@ -65,20 +65,20 @@ install:
   - ckeditor_codemirror
   - csv_serialization
   - ctools
-  - facets
-  - facets_summary
+  # - facets
+  # - facets_summary
   - fontawesome
   - google_analytics
   - honeypot
-  - memcache
+  # - memcache
   - menu_breadcrumb
   - metatag
   - metatag_dc
   - metatag_twitter_cards
   - pathauto
   - redirect
-  - search_api
-  - search_api_solr
+  # - search_api
+  # - search_api_solr
   - simple_sitemap
   - token
   - token_filter
