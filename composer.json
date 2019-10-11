@@ -1,6 +1,6 @@
 {
-    "name": "opengov/og",
-    "description": "Project template for Drupal 8 Open Government project with composer",
+    "name": "opengov/basic",
+    "description": "Project template for Drupal 8 GC Basic project with composer",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "repositories": [
