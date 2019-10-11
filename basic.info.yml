@@ -10,7 +10,6 @@ distribution:
 # Required modules to install to support the profile
 install:
   # core
-  - action
   - block
   - block_content
   - breakpoint
@@ -65,24 +64,17 @@ install:
   - admin_toolbar_links_access_filter
   - admin_toolbar_tools
   - autologout
-  - bootstrap_layouts
   - ckeditor_codemirror
   - csv_serialization
   - ctools
-  # - facets
-  # - facets_summary
   - fontawesome
   - google_analytics
   - honeypot
-  # - memcache
   - menu_breadcrumb
   - metatag
   - metatag_dc
   - metatag_twitter_cards
   - pathauto
-  - redirect
-  # - search_api
-  # - search_api_solr
   - simple_sitemap
   - token
   - token_filter
