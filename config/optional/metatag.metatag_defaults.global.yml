@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+id: global
+label: Global
+tags:
+  abstract: '[current-page:title]'
+  canonical_url: '[current-page:url]'
+  content_language: '[node:langcode]'
+  description: '[site:slogan]'
+  keywords: 'Treasury Board of Canada Secretariat, blog, accessibility, digital, nextgen, open government,  transparency, public service, regulatory cooperation'
+  title: '[current-page:title] | [site:name]'
+  dcterms_creator: 'Treasury Board Secretariat of Canada'
+  dcterms_language: '[node:langcode]'
+  dcterms_title: '[node:title]'

@@ -1,0 +1,7 @@
+langcode: fr
+status: true
+dependencies: {  }
+id: main-navigation-fr
+label: 'Main navigation FR'
+description: 'Main navigation (French)'
+locked: false
