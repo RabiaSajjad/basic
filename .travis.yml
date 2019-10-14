@@ -27,7 +27,7 @@ before_install:
 
 install:
   - composer --verbose validate
-  - composer --verbose create-project opengov/opengov-project:dev-master open_government --prefer-dist --no-interaction
+  - composer --verbose create-project opengov/opengov-project:dev-master basic-project --prefer-dist --no-interaction
 
 script:
   # execute scripts
@@ -35,7 +35,7 @@ script:
   - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.8.x-dev webflo/drupal-core-require-dev:8.8.x-dev; fi;
   - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
 
-  - cd $TRAVIS_BUILD_DIR/html
+  - cd $TRAVIS_BUILD_DIR/basic-project/html
   # install site
   - ./../vendor/bin/drush site-install basic --verbose --yes --db-url=sqlite://tmp/site.sqlite
   
