@@ -1,0 +1,49 @@
+langugage: php
+
+php:
+  - 7.2
+
+env:
+  global:
+    - SIMPLETEST_DB=sqlite://tmp/site.sqlite
+    - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
+    - COMPOSER_MEMORY_LIMIT=-1
+  matrix:
+    - RELEASE=stable COMPOSER_CHANNEL=stable
+    - RELEASE=dev COMPOSER_CHANNEL=stable
+    - RELEASE=stable COMPOSER_CHANNEL=snapshot
+
+before_install:
+  # increase memorry limit
+  - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  # setup sendmail path
+  - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  # disable xdebug
+  - phpenv config-rm xdebug.ini
+  # update composer
+  - composer clear-cache
+  - composer --verbose self-update --$COMPOSER_CHANNEL
+  - composer --version
+
+install:
+  - composer --verbose validate
+  - composer --verbose install --prefer-dist --no-interaction
+
+script:
+  # execute scripts
+  - if [[ $RELEASE = dev ]]; then composer --verbose remove --no-update drupal/console; fi;
+  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.8.x-dev webflo/drupal-core-require-dev:8.8.x-dev; fi;
+  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
+
+  - cd $TRAVIS_BUILD_DIR/html
+  # install site
+  - ./../vendor/bin/drush site-install basic --verbose --yes --db-url=sqlite://tmp/site.sqlite
+  # check response
+  # - ./../vendor/bin/drush runserver $SIMPLETEST_BASE_URL &
+  # - until curl -s $SIMPLETEST_BASE_URL; do true; done > /dev/null
+  # execute core tests
+  # - ./../vendor/bin/phpunit -c core --testsuite unit --exclude-group Composer,DependencyInjection,PageCache,Setup
+  # list drush commands
+  - ./../vendor/bin/drush
+
+  - if [[ $RELEASE = stable ]]; then ./../vendor/bin/drupal; fi;
