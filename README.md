@@ -8,19 +8,19 @@ application of the [WET-BOEW GCWeb](https://github.com/wet-boew/GCWeb) theme.
 
 ## Usage
 
-1. Install composer [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+1. Install [composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 Optional - [Global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 If skipping, you may need to replace `composer` with `php composer.phar` for your setup.
 
-2. Create project:
+2. Create project
 
 ```
 composer create-project opengov/opengov-project:dev-master MYPROJECT --no-interaction
 ```
 
 3. Install using interface, choose Basic as your installation profile. As an alternative, 
-you can also use drush for installation:
+you can also use drush for installation
 
 ```
 drush site:install basic
