@@ -27,7 +27,7 @@ before_install:
 
 install:
   - composer --verbose validate
-  - composer --verbose create-project opengov/opengov-project:dev-master basic-project --prefer-dist --no-interaction
+  - composer --verbose create-project opengov/basic-project:dev-master basic-project --prefer-dist --no-interaction
 
 script:
   # execute scripts
